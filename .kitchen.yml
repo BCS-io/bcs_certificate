@@ -1,0 +1,16 @@
+---
+driver:
+  name: docker
+
+provisioner:
+  name: chef_solo
+
+platforms:
+  - name: ubuntu-12.04
+  - name: ubuntu-14.04
+
+suites:
+  - name: default
+    encrypted_data_bag_secret_key_path: "test/integration/default/test_encrypted_data_bag_secret"
+    run_list:
+      - recipe[bcs_certificate::default]
